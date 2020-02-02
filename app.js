@@ -1,6 +1,17 @@
-const express = require('express');
+import express from 'express';
+
 const app = express();
 
-app.listen(4343, () => {
-  console.log('hi there');
-});
+const PORT = 4000;
+
+const onServerListening = () => {
+  console.log(`Listening on: http://localhost:${PORT}`);
+};
+
+const onHomeListening = (req, res) => {
+  res.send('Hi Home!');
+};
+
+app.get('/', onHomeListening);
+
+app.listen(PORT, onServerListening);
