@@ -4,17 +4,13 @@ import logger from 'morgan';
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
 
-const app = express();
+import { userRouter } from './router';
 
-const PORT = 4000;
+const app = express();
 
 const onHomeListening = (req, res) => {
   console.log(req.cookies);
   res.send('Hi Home!');
-};
-
-const onServerListening = () => {
-  console.log(`Listening on: http://localhost:${PORT}`);
 };
 
 app.use(helmet());
@@ -25,4 +21,6 @@ app.use(bodyParser.json());
 
 app.get('/', onHomeListening);
 
-app.listen(PORT, onServerListening);
+app.use('/user', userRouter);
+
+export default app;
