@@ -18,7 +18,8 @@ const MAP = '/map';
 
 // Board
 const BOARD = '/board';
-const WRITE = '/write';
+const SEARCH_BOARD = '/search-board';
+const WRITE_BOARD = '/write-board';
 const BOARD_DETAIL = '/:id';
 const EDIT_BOARD = '/:id/edit';
 const DELETE_BOARD = '/:id/delete';
@@ -37,7 +38,8 @@ const routes = {
   timeTable: TIMETABLE,
   map: MAP,
   board: BOARD,
-  write: WRITE,
+  searchBoard: SEARCH_BOARD,
+  writeBoard: WRITE_BOARD,
   boardDetail: BOARD_DETAIL,
   editBoard: EDIT_BOARD,
   deleteBoard: DELETE_BOARD
