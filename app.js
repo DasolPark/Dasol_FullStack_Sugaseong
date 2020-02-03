@@ -18,6 +18,8 @@ app.use(bodyParser.json());
 app.use(helmet());
 app.use(logger('dev'));
 
+app.set('view engine', 'pug');
+
 app.use(routes.home, globalRouter);
 app.use(routes.user, userRouter);
 app.use(routes.about, aboutRouter);
