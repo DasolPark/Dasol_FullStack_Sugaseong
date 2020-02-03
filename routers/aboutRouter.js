@@ -4,7 +4,7 @@ import { about, intro, timeTable, map } from '../controllers/aboutController';
 
 const aboutRouter = express.Router();
 
-aboutRouter.get(routes.about, about);
+aboutRouter.get('/', about);
 aboutRouter.get(routes.intro, intro);
 aboutRouter.get(routes.timeTable, timeTable);
 aboutRouter.get(routes.map, map);

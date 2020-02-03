@@ -1,10 +1,11 @@
 // Global
 const HOME = '/';
+
+// User
 const JOIN = '/join';
 const LOGIN = '/login';
 const LOGOUT = '/logout';
 
-// User
 const USER = '/user';
 const USER_DETAIL = '/:id';
 const EDIT_PROFILE = '/:id/edit-profile';
