@@ -9,7 +9,7 @@ export const searchBoard = (req, res) => {
   const {
     query: { term: searchingBy }
   } = req;
-  res.render('searchBoard', { pageTitle: '게시판 검색', boards });
+  res.render('searchBoard', { pageTitle: '게시판 검색', searchingBy, boards });
 };
 
 export const getWriteBoard = (req, res) => {

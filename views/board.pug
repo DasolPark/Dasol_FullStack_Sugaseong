@@ -2,8 +2,6 @@ extends layouts/main
 include mixins/boardBlock
 
 block content
-  .searchingBy
-    h3 "#{searchingBy}" 로 검색된 글
   .board__container
     each item in boards
       +boardBlock({
@@ -12,5 +10,5 @@ block content
         views: item.views,
       })
   .board__search
-    form(action=routes.searchBoard, method="get")
-      input(type="text", placeholder="검색어를 입력해주세요.", name="term" autocomplete="off")
+    form(action=`/board/${routes.searchBoard}`, method="get")
+      input(type="text", name="term", autucomplete="off", placeholder="검색어를 입력해주세요.")
