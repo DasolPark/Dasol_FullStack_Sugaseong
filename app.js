@@ -11,14 +11,16 @@ import timeTableRouter from './routers/timeTableRouter';
 import boardRouter from './routers/boardRouter';
 import mapRouter from './routers/mapRouter';
 import routes from './routes';
+import { localMiddlewares } from './middlewares';
 
 const app = express();
 
+app.use(helmet());
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(helmet());
 app.use(logger('dev'));
+app.use(localMiddlewares);
 
 app.set('view engine', 'pug');
 
