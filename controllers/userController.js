@@ -30,8 +30,16 @@ export const logout = (req, res) => {
 export const userDetail = (req, res) =>
   res.render('userDetail', { pageTitle: '사용자 정보' });
 
-export const editProfile = (req, res) =>
+export const getEditProfile = (req, res) =>
   res.render('editProfile', { pageTitle: '사용자 정보 수정' });
+export const postEditProfile = async (req, res) => {
+  const {
+    body: { name, email },
+    file: { path }
+  } = req;
+
+  res.render('editProfile', { pageTitle: '사용자 정보 수정' });
+};
 
 export const changePassword = (req, res) =>
   res.render('changePassword', { pageTitle: '비밀번호 변경' });

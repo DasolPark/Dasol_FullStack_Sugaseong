@@ -2,13 +2,14 @@ import express from 'express';
 import routes from '../routes';
 import {
   userDetail,
-  editProfile,
   changePassword,
   logout,
   getJoin,
   postJoin,
   getLogin,
-  postLogin
+  postLogin,
+  getEditProfile,
+  postEditProfile
 } from '../controllers/userController';
 
 const userRouter = express.Router();
@@ -22,7 +23,10 @@ userRouter.post(routes.login, postLogin);
 userRouter.get(routes.logout, logout);
 
 userRouter.get(routes.userDetail(), userDetail);
-userRouter.get(routes.editProfile, editProfile);
+
+userRouter.get(routes.editProfile, getEditProfile);
+userRouter.post(routes.editProfile, postEditProfile);
+
 userRouter.get(routes.changePassword, changePassword);
 
 export default userRouter;
