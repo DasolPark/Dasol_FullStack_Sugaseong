@@ -1,4 +1,5 @@
 import { boards } from '../db';
+import routes from '../routes';
 
 export const board = (req, res) => {
   res.render('board', { pageTitle: '게시판', boards });
@@ -15,7 +16,11 @@ export const getWriteBoard = (req, res) => {
   res.render('writeBoard', { pageTitle: '게시판 작성' });
 };
 export const postWriteBoard = (req, res) => {
-  res.render('writeBoard', { pageTitle: '게시판 작성' });
+  const {
+    body: { title, views, content }
+  } = req;
+  // To Do: Upload and save board
+  res.redirection(routes.boardDetail(1234234));
 };
 
 export const boardDetail = (req, res) =>

@@ -22,8 +22,10 @@ export const postLogin = (req, res) => {
   res.redirect(routes.home);
 };
 
-export const logout = (req, res) =>
-  res.render('logout', { pageTitle: '로그아웃' });
+export const logout = (req, res) => {
+  // To Do: Process Log Out
+  res.redirect(routes.board);
+};
 
 export const userDetail = (req, res) =>
   res.render('userDetail', { pageTitle: '사용자 정보' });
