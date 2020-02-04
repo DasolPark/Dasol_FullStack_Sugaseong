@@ -1,6 +1,9 @@
 import mongoose from 'mongoose';
+import dotenv from 'dotenv';
 
-mongoose.connect('mongodb://localhost:27017/sugaseong', {
+dotenv.config();
+
+mongoose.connect(process.env.MONGO_URL, {
   useNewUrlParser: true,
   useFindAndModify: false
 });
@@ -8,7 +11,7 @@ mongoose.connect('mongodb://localhost:27017/sugaseong', {
 const db = mongoose.connection;
 
 const onOpen = () => console.log('Connected to DB');
-const onError = () => console.log(`Error on DB Connection:${error}`);
+const onError = error => console.log(`Error on DB Connection:${error}`);
 
 db.once('open', onOpen);
 db.on('error', onError);
