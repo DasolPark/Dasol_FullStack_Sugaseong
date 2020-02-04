@@ -1,93 +1,14 @@
-export const boards = [
-  {
-    id: 1234234,
-    num: 1,
-    title: '제목1',
-    content: '내용1',
-    date: '2020.01.01',
-    views: 24,
-    creator: {
-      id: 132412,
-      name: 'David',
-      email: 'david@abc.com'
-    }
-  },
-  {
-    id: 1234234,
-    num: 1,
-    title: '제목1',
-    content: '내용1',
-    date: '2020.01.01',
-    views: 24,
-    creator: {
-      id: 132412,
-      name: 'David',
-      email: 'david@abc.com'
-    }
-  },
-  {
-    id: 1234234,
-    num: 1,
-    title: '제목1',
-    content: '내용1',
-    date: '2020.01.01',
-    views: 24,
-    creator: {
-      id: 132412,
-      name: 'David',
-      email: 'david@abc.com'
-    }
-  },
-  {
-    id: 1234234,
-    num: 1,
-    title: '제목1',
-    content: '내용1',
-    date: '2020.01.01',
-    views: 24,
-    creator: {
-      id: 132412,
-      name: 'David',
-      email: 'david@abc.com'
-    }
-  },
-  {
-    id: 1234234,
-    num: 1,
-    title: '제목1',
-    content: '내용1',
-    date: '2020.01.01',
-    views: 24,
-    creator: {
-      id: 132412,
-      name: 'David',
-      email: 'david@abc.com'
-    }
-  },
-  {
-    id: 1234234,
-    num: 1,
-    title: '제목1',
-    content: '내용1',
-    date: '2020.01.01',
-    views: 24,
-    creator: {
-      id: 132412,
-      name: 'David',
-      email: 'david@abc.com'
-    }
-  },
-  {
-    id: 1234234,
-    num: 1,
-    title: '제목1',
-    content: '내용1',
-    date: '2020.01.01',
-    views: 24,
-    creator: {
-      id: 132412,
-      name: 'David',
-      email: 'david@abc.com'
-    }
-  }
-];
+import mongoose from 'mongoose';
+
+mongoose.connect('mongodb://localhost:27017/sugaseong', {
+  useNewUrlParser: true,
+  useFindAndModify: false
+});
+
+const db = mongoose.connection;
+
+const onOpen = () => console.log('Connected to DB');
+const onError = () => console.log(`Error on DB Connection:${error}`);
+
+db.once('open', onOpen);
+db.on('error', onError);

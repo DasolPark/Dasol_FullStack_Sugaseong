@@ -1,15 +1,14 @@
-import { boards } from '../db';
 import routes from '../routes';
 
 export const board = (req, res) => {
-  res.render('board', { pageTitle: '게시판', boards });
+  res.render('board', { pageTitle: '게시판' });
 };
 
 export const searchBoard = (req, res) => {
   const {
     query: { term: searchingBy }
   } = req;
-  res.render('searchBoard', { pageTitle: '게시판 검색', searchingBy, boards });
+  res.render('searchBoard', { pageTitle: '게시판 검색', searchingBy });
 };
 
 export const getWriteBoard = (req, res) => {
