@@ -1,4 +1,4 @@
-export const board = [
+export const boards = [
   {
     id: 1234234,
     num: 1,
