@@ -4,10 +4,12 @@ import logger from 'morgan';
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
 
-import globalRouter from './routers/globalRouter';
 import userRouter from './routers/userRouter';
+import globalRouter from './routers/globalRouter';
 import aboutRouter from './routers/aboutRouter';
+import timeTableRouter from './routers/timeTableRouter';
 import boardRouter from './routers/boardRouter';
+import mapRouter from './routers/mapRouter';
 import routes from './routes';
 
 const app = express();
@@ -20,9 +22,11 @@ app.use(logger('dev'));
 
 app.set('view engine', 'pug');
 
-app.use(routes.home, globalRouter);
 app.use(routes.user, userRouter);
+app.use(routes.home, globalRouter);
 app.use(routes.about, aboutRouter);
+app.use(routes.timeTable, timeTableRouter);
 app.use(routes.board, boardRouter);
+app.use(routes.map, mapRouter);
 
 export default app;

@@ -14,8 +14,9 @@ const CHANGE_PASSWORD = '/:id/change-password';
 // About
 const ABOUT = '/about';
 const INTRO = '/intro';
-const TIMETABLE = '/timetable';
-const MAP = '/map';
+
+// Time Table
+const TIMETABLE = '/time-table';
 
 // Board
 const BOARD = '/board';
@@ -24,6 +25,9 @@ const WRITE_BOARD = '/write-board';
 const BOARD_DETAIL = '/:id';
 const EDIT_BOARD = '/:id/edit';
 const DELETE_BOARD = '/:id/delete';
+
+// Map
+const MAP = '/map';
 
 const routes = {
   home: HOME,
