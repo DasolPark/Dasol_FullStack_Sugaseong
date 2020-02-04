@@ -13,8 +13,8 @@ HTML5, CSS4, JavaScript, MongoDB, Babel, Webpack
 - [ ] Logout(Redirection to Home)
 - [ ] User(Redirection to userDetail)
 - [ ] User Detail
-- [ ] Edit Profile
-- [ ] Change Password
+- [x] Edit Profile
+- [x] Change Password
 
 ### About
 - [ ] About(Redirection to Intro)
@@ -25,10 +25,10 @@ HTML5, CSS4, JavaScript, MongoDB, Babel, Webpack
 
 ### Board
 - [ ] Board
-- [ ] Search Board
-- [ ] Write Board
+- [x] Search Board
+- [x] Write Board
 - [ ] Board Detail
-- [ ] Edit Board
+- [x] Edit Board
 - [ ] Delete Board
 
 ## Map

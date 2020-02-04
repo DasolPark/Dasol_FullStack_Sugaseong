@@ -8,8 +8,8 @@ const LOGOUT = '/logout';
 
 const USER = '/user';
 const USER_DETAIL = '/:id';
-const EDIT_PROFILE = '/:id/edit-profile';
-const CHANGE_PASSWORD = '/:id/change-password';
+const EDIT_PROFILE = '/edit-profile';
+const CHANGE_PASSWORD = '/change-password';
 
 // About
 const ABOUT = '/about';
@@ -22,6 +22,7 @@ const TIMETABLE = '/time-table';
 const BOARD = '/board';
 const SEARCH_BOARD = '/search-board';
 const WRITE_BOARD = '/write-board';
+const SUBMIT_BOARD = '/submit-board';
 const BOARD_DETAIL = '/:id';
 const EDIT_BOARD = '/:id/edit';
 const DELETE_BOARD = '/:id/delete';
@@ -45,6 +46,7 @@ const routes = {
   board: BOARD,
   searchBoard: SEARCH_BOARD,
   writeBoard: WRITE_BOARD,
+  submitBoard: SUBMIT_BOARD,
   boardDetail: BOARD_DETAIL,
   editBoard: EDIT_BOARD,
   deleteBoard: DELETE_BOARD

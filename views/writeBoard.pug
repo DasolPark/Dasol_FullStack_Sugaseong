@@ -1,4 +1,8 @@
 extends layouts/main
 
 block content
-  p writeBoard
+  .form__container
+    form(action=`/board${routes.submitBoard}`, method="post")
+      input(type="text", id="title", name="title")
+      textarea(name="content", placeholder="글 내용을 작성해주세요.")
+      input(type="submit", value="작성 완료")

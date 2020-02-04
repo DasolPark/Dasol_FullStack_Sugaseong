@@ -1,4 +1,9 @@
 extends layouts/main
 
 block content
-  p editBoard
+  .form__container
+    form(action=`/board${routes.editBoard}`, method="post")
+      input(type="text", placeholder="제목", name="title")
+      textarea(name="content", placeholder="내용을 입력해주세요.")
+      input(type="submit", value="수정 완료")
+    a.form__link.form__link--delete(href=`/board${routes.deleteBoard}`) 글 삭제하기
