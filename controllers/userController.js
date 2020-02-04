@@ -3,7 +3,6 @@ import routes from '../routes';
 export const getJoin = (req, res) => {
   res.render('join', { pageTitle: '회원 가입' });
 };
-
 export const postJoin = (req, res) => {
   const { body: name, email, password1, password2 } = req;
   if (password1 !== password2) {
@@ -16,12 +15,15 @@ export const postJoin = (req, res) => {
   }
 };
 
-export const login = (req, res) => res.render('login', { pageTitle: '로그인' });
+export const getLogin = (req, res) => {
+  res.render('login', { pageTitle: '로그인' });
+};
+export const postLogin = (req, res) => {
+  res.redirect(routes.home);
+};
 
 export const logout = (req, res) =>
   res.render('logout', { pageTitle: '로그아웃' });
-
-export const user = (req, res) => res.render('user', { pageTitle: '사용자' });
 
 export const userDetail = (req, res) =>
   res.render('userDetail', { pageTitle: '사용자 정보' });

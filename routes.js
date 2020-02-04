@@ -7,7 +7,13 @@ const LOGIN = '/login';
 const LOGOUT = '/logout';
 
 const USER = '/user';
-const USER_DETAIL = '/:id';
+const USER_DETAIL = id => {
+  if (id) {
+    return `/user/${id}`;
+  } else {
+    return USER_DETAIL;
+  }
+};
 const EDIT_PROFILE = '/edit-profile';
 const CHANGE_PASSWORD = '/change-password';
 
@@ -22,7 +28,13 @@ const TIMETABLE = '/time-table';
 const BOARD = '/board';
 const SEARCH_BOARD = '/search-board';
 const WRITE_BOARD = '/write-board';
-const BOARD_DETAIL = '/:id';
+const BOARD_DETAIL = id => {
+  if (id) {
+    return `/board/${id}`;
+  } else {
+    return BOARD_DETAIL;
+  }
+};
 const EDIT_BOARD = '/:id/edit';
 const DELETE_BOARD = '/:id/delete';
 
