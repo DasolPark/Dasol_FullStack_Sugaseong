@@ -1,7 +1,14 @@
 import routes from '../routes';
+import Board from '../models/Board';
 
-export const board = (req, res) => {
-  res.render('board', { pageTitle: '게시판' });
+export const board = async (req, res) => {
+  try {
+    const boards = await Board.find({});
+    res.render('board', { pageTitle: '게시판', boards });
+  } catch (error) {
+    console.log(error);
+    res.render('board', { pageTitle: '게시판', boards: [] });
+  }
 };
 
 export const searchBoard = (req, res) => {
@@ -14,12 +21,15 @@ export const searchBoard = (req, res) => {
 export const getWriteBoard = (req, res) => {
   res.render('writeBoard', { pageTitle: '게시판 작성' });
 };
-export const postWriteBoard = (req, res) => {
+export const postWriteBoard = async (req, res) => {
   const {
-    body: { title, views, content }
+    body: { title, content }
   } = req;
-  // To Do: Upload and save board
-  res.redirection(routes.boardDetail(1234234));
+  const newBoard = await Board.create({
+    title,
+    content
+  });
+  res.redirection(routes.boardDetail(newBoard.id));
 };
 
 export const boardDetail = (req, res) =>
