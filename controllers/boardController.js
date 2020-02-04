@@ -8,11 +8,15 @@ export const searchBoard = (req, res) => {
   const {
     query: { term: searchingBy }
   } = req;
-  res.render('search-board', { pageTitle: '게시판 검색' });
+  res.render('searchBoard', { pageTitle: '게시판 검색', boards });
 };
 
-export const writeBoard = (req, res) =>
+export const getWriteBoard = (req, res) => {
   res.render('writeBoard', { pageTitle: '게시판 작성' });
+};
+export const postWriteBoard = (req, res) => {
+  res.render('writeBoard', { pageTitle: '게시판 작성' });
+};
 
 export const boardDetail = (req, res) =>
   res.render('boardDetail', { pageTitle: '게시판 내용' });

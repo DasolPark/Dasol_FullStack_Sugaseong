@@ -5,16 +5,19 @@ import {
   userDetail,
   editProfile,
   changePassword,
-  join,
   login,
-  logout
+  logout,
+  getJoin,
+  postJoin
 } from '../controllers/userController';
 
 const userRouter = express.Router();
 
 userRouter.get('/', user);
 
-userRouter.get(routes.join, join);
+userRouter.get(routes.join, getJoin);
+userRouter.post(routes.join, postJoin);
+
 userRouter.get(routes.login, login);
 userRouter.get(routes.logout, logout);
 

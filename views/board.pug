@@ -1,13 +1,16 @@
 extends layouts/main
+include mixins/boardBlock
 
 block content
   .searchingBy
     h3 "#{searchingBy}" 로 검색된 글
-  p Board
   .board__container
     each item in boards
-      h3= item.title
-      p= item.content
+      +boardBlock({
+        title: item.title,
+        views: item.views,
+        content: item.content
+      })
   .board__search
     form(action=routes.searchBoard, method="get")
       input(type="text", placeholder="검색어를 입력해주세요.", name="term" autocomplete="off")
