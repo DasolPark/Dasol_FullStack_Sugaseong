@@ -1,7 +1,7 @@
 import multer from 'multer';
 import routes from './routes';
 
-const multerAvatar = multer({ dest: 'uploads/avatars/' });
+const multerAvatar = multer({ dest: './src/uploads/avatars/' });
 
 export const localMiddlewares = (req, res, next) => {
   res.locals.siteName = '수가성 교회';

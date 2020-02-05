@@ -3,6 +3,7 @@ import helmet from 'helmet';
 import logger from 'morgan';
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
+import path from 'path';
 
 import userRouter from './routers/userRouter';
 import globalRouter from './routers/globalRouter';
@@ -22,8 +23,11 @@ app.use(bodyParser.json());
 app.use(logger('dev'));
 app.use(localMiddlewares);
 
-app.use('/uploads', express.static('uploads'));
 app.set('view engine', 'pug');
+app.set('views', path.join(__dirname, 'views'));
+
+app.use('/uploads', express.static('uploads'));
+app.use('/dist', express.static(path.join(__dirname, 'dist')));
 
 app.use(routes.user, userRouter);
 app.use(routes.home, globalRouter);
