@@ -7,4 +7,5 @@ block content
     .board__detail-column
       span= board.content
       span= board.views
+      span #{board.createdAt}
     a(href=routes.editBoard(board.id)) 글 수정하기

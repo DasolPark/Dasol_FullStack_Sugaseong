@@ -1,6 +1,16 @@
 import mongoose from 'mongoose';
+import autoIncrement from 'mongoose-auto-increment';
+import { db } from '../db';
+
+autoIncrement.initialize(db);
+
+const date = new Date();
 
 const BoardSchema = new mongoose.Schema({
+  index: {
+    type: Number,
+    default: 0
+  },
   title: {
     type: String,
     required: 'Title is required'
@@ -14,8 +24,8 @@ const BoardSchema = new mongoose.Schema({
     default: 0
   },
   createdAt: {
-    type: Date,
-    default: Date.now
+    type: String,
+    default: `${date.getFullYear()}.${date.getMonth() + 1}.${date.getDate()}.`
   },
   comments: [
     {
@@ -25,6 +35,7 @@ const BoardSchema = new mongoose.Schema({
   ]
 });
 
+BoardSchema.plugin(autoIncrement.plugin, 'Board');
 const model = mongoose.model('Board', BoardSchema);
 
 export default model;
