@@ -16,7 +16,9 @@ export const searchBoard = async (req, res) => {
     query: { term: searchingBy }
   } = req;
   try {
-    const boards = await Board.find({ title: searchingBy });
+    const boards = await Board.find({
+      title: { $regex: searchingBy, $options: 'i' }
+    });
     res.render('searchBoard', {
       pageTitle: '게시판 검색',
       searchingBy,
@@ -70,7 +72,6 @@ export const getEditBoard = async (req, res) => {
   } = req;
   try {
     const oneBoard = await Board.findById(id);
-    console.log(board.id);
     res.render('editBoard', { pageTitle: '게시판 수정', oneBoard });
   } catch (error) {
     console.log(error);
