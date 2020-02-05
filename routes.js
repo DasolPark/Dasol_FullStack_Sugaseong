@@ -23,8 +23,8 @@ const BOARD = '/board';
 const SEARCH_BOARD = '/search-board';
 const WRITE_BOARD = '/write-board';
 const BOARD_DETAIL = '/:id';
-const EDIT_BOARD = '/:id/edit';
-const DELETE_BOARD = '/:id/delete';
+const EDIT_BOARD = '/:id/edit-board';
+const DELETE_BOARD = '/:id/delete-board';
 
 // Map
 const MAP = '/map';
@@ -58,8 +58,20 @@ const routes = {
       return BOARD_DETAIL;
     }
   },
-  editBoard: EDIT_BOARD,
-  deleteBoard: DELETE_BOARD
+  editBoard: id => {
+    if (id) {
+      return `/board/${id}/edit-board`;
+    } else {
+      return EDIT_BOARD;
+    }
+  },
+  deleteBoard: id => {
+    if (id) {
+      return `/board/${id}/delete-board`;
+    } else {
+      return DELETE_BOARD;
+    }
+  }
 };
 
 export default routes;

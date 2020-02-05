@@ -1,8 +1,10 @@
 extends layouts/main
-include mixins/boardBlock
 
 block content
-  .board__detail
-    h1= board.title
-    h2= board.content
-    h3= board.views
+  .board__detail-container
+    .board__detail-column
+      span= board.title
+    .board__detail-column
+      span= board.content
+      span= board.views
+    a(href=routes.editBoard(board.id)) 글 수정하기

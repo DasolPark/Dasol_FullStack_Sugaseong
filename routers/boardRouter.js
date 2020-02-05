@@ -3,11 +3,12 @@ import routes from '../routes';
 import {
   board,
   boardDetail,
-  editBoard,
   deleteBoard,
   searchBoard,
   postWriteBoard,
-  getWriteBoard
+  getWriteBoard,
+  postEditBoard,
+  getEditBoard
 } from '../controllers/boardController';
 
 const boardRouter = express.Router();
@@ -21,8 +22,9 @@ boardRouter.post(routes.writeBoard, postWriteBoard);
 
 boardRouter.get(routes.boardDetail(), boardDetail);
 
-boardRouter.get(routes.editBoard, editBoard);
+boardRouter.get(routes.editBoard(), getEditBoard);
+boardRouter.post(routes.editBoard(), postEditBoard);
 
-boardRouter.get(routes.deleteBoard, deleteBoard);
+boardRouter.get(routes.deleteBoard(), deleteBoard);
 
 export default boardRouter;

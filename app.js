@@ -22,6 +22,7 @@ app.use(bodyParser.json());
 app.use(logger('dev'));
 app.use(localMiddlewares);
 
+app.use('/uploads', express.static('uploads'));
 app.set('view engine', 'pug');
 
 app.use(routes.user, userRouter);
