@@ -29,11 +29,21 @@ export const postWriteBoard = async (req, res) => {
     title,
     content
   });
-  res.redirection(routes.boardDetail(newBoard.id));
+  res.redirect(routes.boardDetail(newBoard.id));
 };
 
-export const boardDetail = (req, res) =>
-  res.render('boardDetail', { pageTitle: '게시판 내용' });
+export const boardDetail = async (req, res) => {
+  try {
+    const {
+      params: { id }
+    } = req;
+    const board = await Board.findById(id);
+    res.render('boardDetail', { pageTitle: '게시판 내용', board });
+  } catch (error) {
+    console.log(error);
+    res.render('boardDetail', { pageTitle: '게시판 내용', board: [] });
+  }
+};
 
 export const editBoard = (req, res) =>
   res.render('editBoard', { pageTitle: '게시판 수정' });

@@ -1,4 +1,8 @@
 extends layouts/main
+include mixins/boardBlock
 
 block content
-  p boardDetail
+  .board__detail
+    h1= board.title
+    h2= board.content
+    h3= board.views

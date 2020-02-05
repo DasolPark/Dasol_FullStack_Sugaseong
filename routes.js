@@ -7,13 +7,7 @@ const LOGIN = '/login';
 const LOGOUT = '/logout';
 
 const USER = '/user';
-const USER_DETAIL = id => {
-  if (id) {
-    return `/user/${id}`;
-  } else {
-    return USER_DETAIL;
-  }
-};
+const USER_DETAIL = '/:id';
 const EDIT_PROFILE = '/edit-profile';
 const CHANGE_PASSWORD = '/change-password';
 
@@ -28,13 +22,7 @@ const TIMETABLE = '/time-table';
 const BOARD = '/board';
 const SEARCH_BOARD = '/search-board';
 const WRITE_BOARD = '/write-board';
-const BOARD_DETAIL = id => {
-  if (id) {
-    return `/board/${id}`;
-  } else {
-    return BOARD_DETAIL;
-  }
-};
+const BOARD_DETAIL = '/:id';
 const EDIT_BOARD = '/:id/edit';
 const DELETE_BOARD = '/:id/delete';
 
@@ -47,7 +35,13 @@ const routes = {
   login: LOGIN,
   logout: LOGOUT,
   user: USER,
-  userDetail: USER_DETAIL,
+  userDetail: id => {
+    if (id) {
+      return `/user/${id}`;
+    } else {
+      return USER_DETAIL;
+    }
+  },
   editProfile: EDIT_PROFILE,
   changePassword: CHANGE_PASSWORD,
   about: ABOUT,
@@ -57,7 +51,13 @@ const routes = {
   board: BOARD,
   searchBoard: SEARCH_BOARD,
   writeBoard: WRITE_BOARD,
-  boardDetail: BOARD_DETAIL,
+  boardDetail: id => {
+    if (id) {
+      return `/board/${id}`;
+    } else {
+      return BOARD_DETAIL;
+    }
+  },
   editBoard: EDIT_BOARD,
   deleteBoard: DELETE_BOARD
 };

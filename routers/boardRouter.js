@@ -19,7 +19,7 @@ boardRouter.get(routes.searchBoard, searchBoard);
 boardRouter.get(routes.writeBoard, getWriteBoard);
 boardRouter.post(routes.writeBoard, postWriteBoard);
 
-boardRouter.get(routes.boardDetail, boardDetail);
+boardRouter.get(routes.boardDetail(), boardDetail);
 
 boardRouter.get(routes.editBoard, editBoard);
 

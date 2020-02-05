@@ -13,4 +13,4 @@ export const localMiddlewares = (req, res, next) => {
   next();
 };
 
-export default uploadAvatar = multerAvatar.single('avatarFile');
+export const uploadAvatar = multerAvatar.single('avatarFile');
