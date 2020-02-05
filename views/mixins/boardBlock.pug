@@ -1,6 +1,9 @@
 mixin boardBlock(board = {})
-  .boardBlock
-    a(href=routes.boardDetail(board.id))
-      h4.boardBlock__title=board.title
-    h6.boardBlock__views=board.views
-    h5.boradBlock__content=board.content
+  tbody.boardBlock
+    tr.board__contents
+      td.board__content-column= board.index
+      td.board__content-column
+        a(href=routes.boardDetail(board.id))
+          h4.boardBlock__title= board.title
+      td.board__content-column= board.date
+      td.board__content-column= board.views

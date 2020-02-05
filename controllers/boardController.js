@@ -11,11 +11,25 @@ export const board = async (req, res) => {
   }
 };
 
-export const searchBoard = (req, res) => {
+export const searchBoard = async (req, res) => {
   const {
     query: { term: searchingBy }
   } = req;
-  res.render('searchBoard', { pageTitle: '게시판 검색', searchingBy });
+  try {
+    const boards = await Board.find({ title: searchingBy });
+    res.render('searchBoard', {
+      pageTitle: '게시판 검색',
+      searchingBy,
+      boards
+    });
+  } catch (error) {
+    console.log(error);
+    res.render('searchBoard', {
+      pageTitle: '게시판 검색',
+      searchingBy,
+      boards: []
+    });
+  }
 };
 
 export const getWriteBoard = (req, res) => {

@@ -2,10 +2,14 @@ extends layouts/main
 
 block content
   .board__detail-container
-    .board__detail-column
-      span= board.title
-    .board__detail-column
+    .board__detail-titles
+      .board__detail-column
+        span= board.index
+      .board__detail-column
+        span= board.title
+      .board__detail-column
+        span= board.createdAt
+        span= board.views
+    .board__detail-content
       span= board.content
-      span= board.views
-      span #{board.createdAt}
     a(href=routes.editBoard(board.id)) 글 수정하기
