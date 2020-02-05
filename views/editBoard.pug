@@ -2,8 +2,8 @@ extends layouts/main
 
 block content
   .form__container
-    form(action=routes.editBoard(board.id), method="post")
-      input(type="text", placeholder="제목", name="title", value=board.title, autocomplete="off")
-      textarea(name="content", placeholder="내용을 입력해주세요.", autocomplete="off")=board.content
+    form(action=routes.editBoard(oneBoard.id), method="post")
+      input(type="text", placeholder="제목", name="title", value=oneBoard.title, autocomplete="off")
+      textarea(name="content", placeholder="내용을 입력해주세요.", autocomplete="off")=oneBoard.content
       input(type="submit", value="수정 완료")
-    a.form__link.form__link--delete(href=routes.deleteBoard(board.id)) 글 삭제하기
+    a.form__link.form__link--delete(href=routes.deleteBoard(oneBoard.id)) 글 삭제하기

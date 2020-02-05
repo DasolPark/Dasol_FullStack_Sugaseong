@@ -1,5 +1,5 @@
 import express from 'express';
-import { map } from '../controllers/mapController';
+import map from '../controllers/mapController';
 
 const mapRouter = express.Router();
 

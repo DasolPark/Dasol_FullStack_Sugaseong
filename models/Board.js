@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 import autoIncrement from 'mongoose-auto-increment';
-import { db } from '../db';
+import db from '../db';
 
 autoIncrement.initialize(db);
 

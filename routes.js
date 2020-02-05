@@ -38,9 +38,8 @@ const routes = {
   userDetail: id => {
     if (id) {
       return `/user/${id}`;
-    } else {
-      return USER_DETAIL;
     }
+    return USER_DETAIL;
   },
   editProfile: EDIT_PROFILE,
   changePassword: CHANGE_PASSWORD,
@@ -54,23 +53,20 @@ const routes = {
   boardDetail: id => {
     if (id) {
       return `/board/${id}`;
-    } else {
-      return BOARD_DETAIL;
     }
+    return BOARD_DETAIL;
   },
   editBoard: id => {
     if (id) {
       return `/board/${id}/edit-board`;
-    } else {
-      return EDIT_BOARD;
     }
+    return EDIT_BOARD;
   },
   deleteBoard: id => {
     if (id) {
       return `/board/${id}/delete-board`;
-    } else {
-      return DELETE_BOARD;
     }
+    return DELETE_BOARD;
   }
 };
 

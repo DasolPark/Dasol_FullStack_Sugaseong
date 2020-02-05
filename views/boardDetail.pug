@@ -4,12 +4,12 @@ block content
   .board__detail-container
     .board__detail-titles
       .board__detail-column
-        span= board.index
+        span= oneBoard.index
       .board__detail-column
-        span= board.title
+        span= oneBoard.title
       .board__detail-column
-        span= board.createdAt
-        span= board.views
+        span= oneBoard.createdAt
+        span= oneBoard.views
     .board__detail-content
-      span= board.content
-    a(href=routes.editBoard(board.id)) 글 수정하기
+      span= oneBoard.content
+    a(href=routes.editBoard(oneBoard.id)) 글 수정하기

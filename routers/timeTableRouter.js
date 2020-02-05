@@ -1,5 +1,5 @@
 import express from 'express';
-import { timeTable } from '../controllers/timeTableController';
+import timeTable from '../controllers/timeTableController';
 
 const timeTableRouter = express.Router();
 

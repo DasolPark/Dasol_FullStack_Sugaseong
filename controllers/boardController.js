@@ -56,8 +56,8 @@ export const boardDetail = async (req, res) => {
     params: { id }
   } = req;
   try {
-    const board = await Board.findById(id);
-    res.render('boardDetail', { pageTitle: '게시판 내용', board });
+    const oneBoard = await Board.findById(id);
+    res.render('boardDetail', { pageTitle: '게시판 내용', oneBoard });
   } catch (error) {
     console.log(error);
     res.render('boardDetail', { pageTitle: '게시판 내용', board: [] });
@@ -69,9 +69,9 @@ export const getEditBoard = async (req, res) => {
     params: { id }
   } = req;
   try {
-    const board = await Board.findById(id);
+    const oneBoard = await Board.findById(id);
     console.log(board.id);
-    res.render('editBoard', { pageTitle: '게시판 수정', board });
+    res.render('editBoard', { pageTitle: '게시판 수정', oneBoard });
   } catch (error) {
     console.log(error);
     res.redirect(routes.board);
