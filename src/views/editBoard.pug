@@ -7,4 +7,5 @@ block content
         input(type="text", placeholder="제목", name="title", value=oneBoard.title, autocomplete="off")
         textarea(name="content", placeholder="내용을 입력해주세요.", autocomplete="off")=oneBoard.content
         input(type="submit", value="수정 완료")
-      a.form__link.form__link--delete(href=routes.deleteBoard(oneBoard.id)) 글 삭제하기
+      form(action=routes.deleteBoard(oneBoard.id))
+        input(type="submit", value="삭제하기")

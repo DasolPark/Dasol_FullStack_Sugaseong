@@ -13,7 +13,8 @@ block content
           span= oneBoard.views
       .board__detail-content
         span= oneBoard.content
-      a(href=routes.editBoard(oneBoard.id)) 글 수정하기
+      form(action=routes.editBoard(oneBoard.id))
+        input(type="submit", value="수정하기")
     .board__comments
       if oneBoard.comments.length === 0
         span.board__comment-number 0 comment
