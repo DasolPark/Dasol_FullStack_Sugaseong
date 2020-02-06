@@ -11,9 +11,15 @@
 @import './partials/header.scss';
 @import './partials/messages.scss';
 @import './partials/socialLogin.scss';
+@import './main.scss';
 
 * {
   box-sizing: border-box;
   font-family: $fontFamily;
   font-size: 1rem;
+}
+
+html,
+body {
+  height: 100%;
 }
