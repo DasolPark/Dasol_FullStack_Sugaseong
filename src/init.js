@@ -1,8 +1,6 @@
 import dotenv from 'dotenv';
-import './db';
 import app from './app';
-import './models/Board';
-import './models/Comment';
+import './db';
 
 dotenv.config();
 
