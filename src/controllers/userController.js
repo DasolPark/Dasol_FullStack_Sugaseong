@@ -24,7 +24,7 @@ export const postLogin = (req, res) => {
 
 export const logout = (req, res) => {
   // To Do: Process Log Out
-  res.redirect(routes.board);
+  res.redirect(routes.home);
 };
 
 export const userDetail = (req, res) =>
