@@ -2,6 +2,7 @@
 @import './config/reset.scss';
 @import './config/utils.scss';
 @import './pages/home.scss';
+@import './pages/about.scss';
 @import './pages/board.scss';
 @import './pages/boardDetail.scss';
 @import './pages/userProfile.scss';
@@ -22,4 +23,36 @@
 html,
 body {
   height: 100%;
+}
+
+input[type='button'],
+input[type='submit'] {
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 2px solid rgba(0, 0, 0, 0.3);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.8);
+  box-shadow: 0 1.5px 7.6px -8px rgba(0, 0, 0, 0.209),
+    0 7px 24px -8px rgba(0, 0, 0, 0.39);
+}
+
+input[type='button']:hover,
+input[type='submit']:hover {
+  cursor: pointer;
+}
+
+input[type='button']:active,
+input[type='submit']:active {
+  transform: scale(0.98);
+}
+
+input[type='text'] {
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+::placeholder {
+  text-align: center;
 }
