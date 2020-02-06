@@ -2,25 +2,26 @@ extends layouts/main
 include mixins/boardBlock
 
 block content
-  .board__write
-    form(action=`/board${routes.writeBoard}`, method="get")
-      input(type="submit", value="글 작성하기")
-  .board__container
-    table.board
-      thead.board__table-head
-        tr.board__titles
-          th.board__column 번호
-          th.board__column 제목
-          th.board__column 작성일
-          th.board__column 조회
-      each item in boards
-        +boardBlock({
-          id: item.id,
-          index: item.index,
-          title: item.title,
-          date: item.createdAt,
-          views: item.views,
-        })
-  .board__search
-    form(action=`/board${routes.searchBoard}`, method="get")
-      input(type="text", name="term", autocomplete="off", placeholder="검색어를 입력해주세요.")
+  .board
+    .board__write
+      form(action=`/board${routes.writeBoard}`, method="get")
+        input(type="submit", value="글 작성하기")
+    .board__container
+      table.board
+        thead.board__table-head
+          tr.board__titles
+            th.board__column 번호
+            th.board__column 제목
+            th.board__column 작성일
+            th.board__column 조회
+        each item in boards
+          +boardBlock({
+            id: item.id,
+            index: item.index,
+            title: item.title,
+            date: item.createdAt,
+            views: item.views,
+          })
+    .board__search
+      form(action=`/board${routes.searchBoard}`, method="get")
+        input(type="text", name="term", autocomplete="off", placeholder="검색어를 입력해주세요.")

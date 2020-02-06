@@ -1,4 +1,5 @@
 header.header
+  .header__bg
   .header__container
     .header__column
       a(href=routes.home)
@@ -24,11 +25,15 @@ header.header
       ul
         if !user.isAuthenticated
           li
-            a(href=`/user${routes.join}`) 회원가입
+            a(href=`/user${routes.join}`)
+              span 회원가입
           li
-            a(href=`/user${routes.login}`) 로그인
+            a(href=`/user${routes.login}`)
+              span 로그인
         else
           li
-            a(href=`/user${routes.userDetail}`) 프로필
+            a(href=`/user${routes.userDetail}`)
+              span 프로필
           li
-            a(href=`/user${routes.logout}`) 로그아웃
+            a(href=`/user${routes.logout}`)
+              span 로그아웃

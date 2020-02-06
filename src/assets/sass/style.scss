@@ -1,6 +1,19 @@
 @import './config/_variables';
 @import './config/reset.scss';
+@import './config/utils.scss';
+@import './pages/home.scss';
+@import './pages/board.scss';
+@import './pages/boardDetail.scss';
+@import './pages/userProfile.scss';
+@import './partials/footer.scss';
+@import './partials/boardBlock.scss';
+@import './partials/form.scss';
+@import './partials/header.scss';
+@import './partials/messages.scss';
+@import './partials/socialLogin.scss';
 
 * {
   box-sizing: border-box;
+  font-family: $fontFamily;
+  font-size: 1rem;
 }
