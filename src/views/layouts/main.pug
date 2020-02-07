@@ -3,7 +3,8 @@ html
   head
     title #{pageTitle} | #{siteName}
     link(href="/dist/css/style.css", rel="stylesheet")
-    script(type="text/javascript" src=`https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=${process.env.NAVER_CLIENT_ID}`)
+    link(rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css")
+    script(type="text/javascript" src=`https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=${NAVER_CLIENT_ID}`)
   body
     include ../partials/header
     main
