@@ -2,7 +2,7 @@ extends layouts/main
 
 block content
   .background__container
-    .form__container
+    .form__container--edit
       form(action=routes.editBoard(oneBoard.id), method="post")
         input(type="text", placeholder="제목", name="title", value=oneBoard.title, autocomplete="off")
         textarea(name="content", placeholder="내용을 입력해주세요.", autocomplete="off")=oneBoard.content

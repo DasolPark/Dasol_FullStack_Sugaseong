@@ -2,7 +2,7 @@ extends layouts/main
 
 block content
   .background__container
-    .form__container
+    .form__container--write
       form(action=`/board${routes.writeBoard}`, method="post")
         input(type="text", id="title", name="title", required=true, autocomplete="off")
         textarea(name="content", placeholder="글 내용을 작성해주세요.", required=true, autocomplete="off")

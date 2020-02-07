@@ -1,0 +1,30 @@
+.form__container--write,
+.form__container--edit {
+  width: 100%;
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  form:first-child {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 30px;
+
+    input[type='text'] {
+      width: 50%;
+      margin-bottom: 10px;
+    }
+    textarea {
+      width: 50%;
+      height: 50%;
+      margin-bottom: 30px;
+      border-radius: 5px;
+    }
+  }
+}

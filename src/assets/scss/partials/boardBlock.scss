@@ -1,0 +1,50 @@
+.board__container {
+  width: 80%;
+  margin-bottom: 20px;
+  & table {
+    & thead {
+      font-size: 1.1rem;
+      font-weight: 600;
+      width: 100%;
+      border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+      & tr {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 10% 60% 10% 10% 10%;
+        padding: 5px 0px;
+        & th {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+    }
+    & tbody {
+      width: 100%;
+      & tr {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 10% 60% 10% 10% 10%;
+        border-bottom: 1px solid black;
+        padding: 5px 0px;
+        & td {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+    }
+  }
+}
+.board__index {
+  margin-bottom: 20px;
+  ul {
+    display: flex;
+
+    li {
+      margin-right: 5px;
+    }
+  }
+}

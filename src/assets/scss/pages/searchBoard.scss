@@ -1,0 +1,20 @@
+.searchBoard__container {
+  width: 100%;
+  height: 90%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 10% 80% 10%;
+  justify-content: center;
+  align-content: center;
+
+  .searchingBy,
+  .board__container,
+  .board__search {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+  }
+}

@@ -10,15 +10,16 @@ block content
           span= oneBoard.title
         .board__detail-column
           span= oneBoard.createdAt
+        .board__detail-column
           span= oneBoard.views
       .board__detail-content
         span= oneBoard.content
       form(action=routes.editBoard(oneBoard.id))
         input(type="submit", value="수정하기")
-    .board__comments
-      if oneBoard.comments.length === 0
-        span.board__comment-number 0 comment
-      else if oneBoard.comments.length === 1
-        span.board__comment-number 1 comment
-      else
-        span.board__comment-number #{oneBoard.comments.length} comments
+      .board__comments
+        if oneBoard.comments.length === 0
+          span.board__comment-number 0 comment
+        else if oneBoard.comments.length === 1
+          span.board__comment-number 1 comment
+        else
+          span.board__comment-number #{oneBoard.comments.length} comments
