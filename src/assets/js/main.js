@@ -1,1 +1,2 @@
 import './boardIndex';
+import './map';

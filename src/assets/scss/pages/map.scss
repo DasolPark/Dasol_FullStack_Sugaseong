@@ -1,0 +1,19 @@
+.map__container {
+  width: 90%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+
+  #map {
+    width: 100%;
+    height: 50%;
+    margin: 30px 0px;
+  }
+  .address,
+  .phoneNumber {
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+}
