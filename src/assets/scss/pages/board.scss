@@ -60,5 +60,12 @@
   }
   .board__index {
     margin-bottom: 20px;
+    ul {
+      display: flex;
+
+      li {
+        margin-right: 5px;
+      }
+    }
   }
 }

@@ -5,7 +5,7 @@ module.exports = {
   entry: [
     '@babel/polyfill',
     './src/assets/js/main.js',
-    './src/assets/sass/style.scss'
+    './src/assets/scss/style.scss'
   ],
   output: {
     path: path.resolve(__dirname, 'src/dist/'),

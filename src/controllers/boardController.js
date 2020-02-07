@@ -4,7 +4,12 @@ import Board from '../models/Board';
 export const board = async (req, res) => {
   try {
     const boards = await Board.find({});
-    res.render('board', { pageTitle: '게시판', boards });
+    const firstPage = boards.slice(0, 10);
+    const pageIndex = [];
+    for (let i = 0; i < Math.ceil(boards.length / 10); i++) {
+      pageIndex.push(i + 1);
+    }
+    res.render('board', { pageTitle: '게시판', firstPage, pageIndex });
   } catch (error) {
     console.log(error);
     res.render('board', { pageTitle: '게시판', boards: [] });
