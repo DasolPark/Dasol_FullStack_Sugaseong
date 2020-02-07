@@ -2,4 +2,13 @@ extends layouts/main
 
 block content
   .background__container
-    p timeTable
+    .timeTable__container
+      .timeTable__title 예배 시간 안내
+      table
+        tbody
+          each time in timeTableManifest
+            tr
+              td= time.title
+              td= time.day
+              td= time.time
+              td= time.place
