@@ -1,0 +1,32 @@
+.social__login {
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    span {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  button a {
+    font-size: 1.4rem;
+  }
+  i,
+  .naver,
+  .kakao {
+    margin-right: 5px;
+  }
+  .fab.fa-facebook-square {
+    color: #4267b2;
+  }
+  .fab.fa-google {
+    color: #ea4335;
+  }
+  .naver {
+    color: #03cf5d;
+  }
+  .kakao {
+    color: #f9e000;
+  }
+}

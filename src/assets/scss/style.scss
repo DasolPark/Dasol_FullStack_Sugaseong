@@ -42,7 +42,8 @@ button {
 
 input[type='button'],
 input[type='submit'],
-.form__link {
+.form__link,
+.social__login button {
   padding: 5px 10px;
   border-radius: 5px;
   border: 2px solid rgba(0, 0, 0, 0.3);
@@ -54,14 +55,17 @@ input[type='submit'],
 }
 
 input[type='button']:hover,
-input[type='submit']:hover {
+input[type='submit']:hover,
+.social__github {
   cursor: pointer;
 }
 
 input[type='button']:active,
 input[type='submit']:active,
-.form__link a:active {
+.form__link a:active,
+.social__github:active {
   transform: scale(0.98);
+  outline-style: none;
 }
 
 input[type='text'],
