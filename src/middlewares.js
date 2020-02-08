@@ -12,11 +12,24 @@ export const localMiddlewares = (req, res, next) => {
   res.locals.routes = routes;
   res.locals.NAVER_CLIENT_ID = process.env.NAVER_CLIENT_ID;
   res.locals.slogan = slogan;
-  res.locals.user = {
-    isAuthenticated: true,
-    id: 1
-  };
+  res.locals.user = req.user || null;
   next();
+};
+
+export const onlyPublic = (req, res, next) => {
+  if (req.user) {
+    res.redirect(routes.home);
+  } else {
+    next();
+  }
+};
+
+export const onlyPrivate = (req, res, next) => {
+  if (req.user) {
+    next();
+  } else {
+    res.redirect(routes.home);
+  }
 };
 
 export const uploadAvatar = multerAvatar.single('avatarFile');

@@ -1,10 +1,16 @@
+import dotenv from 'dotenv';
 import express from 'express';
 import helmet from 'helmet';
 import logger from 'morgan';
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
+import passport from 'passport';
+import session from 'express-session';
+import MongoStore from 'connect-mongo';
 import path from 'path';
+import mongooseConnection from './db';
 
+import { localMiddlewares } from './middlewares';
 import userRouter from './routers/userRouter';
 import globalRouter from './routers/globalRouter';
 import aboutRouter from './routers/aboutRouter';
@@ -12,7 +18,12 @@ import timeTableRouter from './routers/timeTableRouter';
 import boardRouter from './routers/boardRouter';
 import mapRouter from './routers/mapRouter';
 import routes from './routes';
-import { localMiddlewares } from './middlewares';
+
+import './passport';
+
+dotenv.config();
+
+const CookieStore = MongoStore(session);
 
 const app = express();
 
@@ -21,6 +32,16 @@ app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(logger('dev'));
+app.use(
+  session({
+    secret: process.env.COOKIE_SECRET,
+    resave: true,
+    saveUninitialized: false,
+    store: new CookieStore({ mongooseConnection })
+  })
+);
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(localMiddlewares);
 
 app.set('view engine', 'pug');

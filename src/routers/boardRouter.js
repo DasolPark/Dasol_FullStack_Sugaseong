@@ -13,6 +13,8 @@ import {
 
 const boardRouter = express.Router();
 
+// To Do onlyPrivate after index
+
 boardRouter.get('/', board);
 
 boardRouter.get(routes.searchBoard, searchBoard);
