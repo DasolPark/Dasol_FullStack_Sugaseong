@@ -1,8 +1,9 @@
 .social__login
   button.social__github
-    span
-      i.fab.fa-github
-    | 깃허브로 로그인하기
+    a(href=`/user${routes.github}`)
+      span
+        i.fab.fa-github
+      | 깃허브로 로그인하기
   button.social__facebook
     span
       i.fab-fa-facebook

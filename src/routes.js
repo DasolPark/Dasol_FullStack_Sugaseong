@@ -29,6 +29,10 @@ const DELETE_BOARD = '/:id/delete-board';
 // Map
 const MAP = '/map';
 
+// Github
+const GITHUB = '/auth/github';
+const GITHUB_CALLBACK = '/auth/github/callback';
+
 const routes = {
   home: HOME,
   join: JOIN,
@@ -62,7 +66,9 @@ const routes = {
       return `/board/${id}/delete-board`;
     }
     return DELETE_BOARD;
-  }
+  },
+  github: GITHUB,
+  githubCallback: GITHUB_CALLBACK
 };
 
 export default routes;
