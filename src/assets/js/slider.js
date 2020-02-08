@@ -18,8 +18,8 @@ const mySwiper = new Swiper('.swiper-container', {
 });
 
 const imageWidth = 1920;
-const imageHeight = 250;
-const collectionID = 8469893; // Warm Toned Mediterranean(106 photos)
+const imageHeight = 350;
+const collectionID = 493892; // Warm Toned Mediterranean(106 photos)
 
 fetch(
   `https://source.unsplash.com/collection/${collectionID}/${imageWidth}x${imageHeight}/`
@@ -32,4 +32,5 @@ fetch(
   })
   .catch(err => {
     console.log(err);
+    console.log(mySwiper);
   });
