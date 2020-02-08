@@ -14,9 +14,15 @@ block content
           span 셋 째, 소외된 이에게 진리와 사랑을 주는 곳입니다
       .swiper-pagination
     .home__item
-      span #{slogan.permanentSloganTitle}
-      span #{slogan.permanentSlogan}
-      span #{slogan.sloganTitleThisYear}
-      span #{slogan.sloganThisYear}
+      .item__first
+        span #{slogan.permanentSloganTitle}
+        span 
+          span #{slogan.permanentSlogan}
+          span #{slogan.permanentBible}
+      .item__second
+        span #{slogan.sloganTitleThisYear}
+        span 
+          span #{slogan.sloganThisYear}
+          span #{slogan.thisYearBible}
     .home__item
       span 수가성교회는 언제나 여러분을 환영합니다

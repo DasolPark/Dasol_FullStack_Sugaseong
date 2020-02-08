@@ -3,7 +3,7 @@ extends layouts/main
 block content
   .background__container
     .form__container
-      form(action=`/user${routes.join}`, method="post")
+      form.form__join(action=`/user${routes.join}`, method="post")
         input(type="text", name="name", placeholder="전체 이름", required=true, autocomplete="off")
         input(type="email", name="email", placeholder="이메일", required=true, autocomplete="off")
         input(type="password", name="password1", placeholder="비밀번호", required=true)

@@ -17,6 +17,7 @@
 @import './partials/header.scss';
 @import './partials/messages.scss';
 @import './partials/socialLogin.scss';
+@import './partials/editProfile.scss';
 @import './main.scss';
 
 * {
@@ -33,13 +34,15 @@ body {
 }
 
 input,
-textarea {
+textarea,
+button {
   font-family: $fontFamily;
   font-family: $googleFont;
 }
 
 input[type='button'],
-input[type='submit'] {
+input[type='submit'],
+.form__link {
   padding: 5px 10px;
   border-radius: 5px;
   border: 2px solid rgba(0, 0, 0, 0.3);
@@ -56,14 +59,17 @@ input[type='submit']:hover {
 }
 
 input[type='button']:active,
-input[type='submit']:active {
+input[type='submit']:active,
+.form__link a:active {
   transform: scale(0.98);
 }
 
 input[type='text'],
-textarea {
-  font-size: 0.9rem;
-  font-weight: 600;
+textarea,
+input[type='email'],
+input[type='password'],
+input[type='file'] {
+  font-size: 1.3rem;
   border-bottom: 2px solid rgba(0, 0, 0, 0.3);
 }
 

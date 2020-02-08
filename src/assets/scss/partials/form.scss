@@ -1,0 +1,95 @@
+.form__container {
+  width: 50%;
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  .form__join {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(5, 1fr);
+    grid-gap: 1rem;
+    margin-bottom: 10px;
+    label {
+      font-size: 1.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    input {
+      font-size: 1.5rem;
+    }
+    .form__link {
+      font-size: 1.5rem;
+      background-color: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  .form__login {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap: 1rem;
+    margin-bottom: 10px;
+    label {
+      font-size: 1.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    input {
+      font-size: 1.5rem;
+    }
+    .form__link {
+      font-size: 1.5rem;
+      background-color: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  .form__change-pw {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 1fr);
+    grid-gap: 1rem;
+    margin-bottom: 10px;
+    label {
+      font-size: 1.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    input {
+      font-size: 1.5rem;
+    }
+    .form__link {
+      font-size: 1.5rem;
+      background-color: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+
+.social__login {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  button {
+    width: 100%;
+    margin-bottom: 5px;
+    font-size: 2rem;
+    white-space: pre;
+    min-width: 220px;
+  }
+}
