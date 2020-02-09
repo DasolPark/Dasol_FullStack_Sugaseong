@@ -1,3 +1,3 @@
-import './boardIndex';
+import './registerBoardView';
 import './slider';
 import './map';

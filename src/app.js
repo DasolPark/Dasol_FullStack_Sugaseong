@@ -20,6 +20,7 @@ import mapRouter from './routers/mapRouter';
 import routes from './routes';
 
 import './passport';
+import apiRouter from './routers/apiRouter';
 
 dotenv.config();
 
@@ -56,5 +57,6 @@ app.use(routes.about, aboutRouter);
 app.use(routes.timeTable, timeTableRouter);
 app.use(routes.board, boardRouter);
 app.use(routes.map, mapRouter);
+app.use(routes.api, apiRouter);
 
 export default app;

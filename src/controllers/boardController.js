@@ -121,3 +121,21 @@ export const deleteBoard = async (req, res) => {
     res.redirect(routes.board);
   }
 };
+
+export const postRegisterView = async (req, res) => {
+  const {
+    params: { id }
+  } = req;
+  console.log(req.params.id);
+  try {
+    const oneBoard = await Board.findById(id);
+    oneBoard.views += 1;
+    oneBoard.save();
+    res.status(200);
+  } catch (error) {
+    console.log('here?');
+    res.status(400);
+  } finally {
+    res.end();
+  }
+};
