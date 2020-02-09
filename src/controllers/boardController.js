@@ -1,5 +1,6 @@
 import routes from '../routes';
 import Board from '../models/Board';
+import Comment from '../models/Comment';
 
 export const board = async (req, res) => {
   try {
@@ -66,7 +67,9 @@ export const boardDetail = async (req, res) => {
     params: { id }
   } = req;
   try {
-    const oneBoard = await Board.findById(id).populate('creator');
+    const oneBoard = await Board.findById(id)
+      .populate('creator')
+      .populate('comments');
     res.render('boardDetail', { pageTitle: '게시판 내용', oneBoard });
   } catch (error) {
     console.log(error);
@@ -134,6 +137,28 @@ export const postRegisterView = async (req, res) => {
     res.status(200);
   } catch (error) {
     console.log('here?');
+    res.status(400);
+  } finally {
+    res.end();
+  }
+};
+
+export const postAddComment = async (req, res) => {
+  const {
+    params: { id },
+    body: { comment },
+    user
+  } = req;
+  try {
+    const oneBoard = await Board.findById(id);
+    const newComment = await Comment.create({
+      text: comment,
+      creator: user.id
+    });
+    oneBoard.comments.push(newComment.id);
+    oneBoard.save();
+  } catch (error) {
+    console.log(error);
     res.status(400);
   } finally {
     res.end();
