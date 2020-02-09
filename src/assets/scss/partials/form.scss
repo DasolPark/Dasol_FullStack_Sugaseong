@@ -5,11 +5,13 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  .form__join {
+  .form__join,
+  .form__login,
+  .form__change-pw,
+  .form__edit-profile {
     width: 100%;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(5, 1fr);
     grid-gap: 1rem;
     margin-bottom: 10px;
     label {
@@ -28,54 +30,16 @@
       justify-content: center;
       align-items: center;
     }
+  }
+  .form__join {
+    grid-template-rows: repeat(5, 1fr);
   }
   .form__login {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr;
     grid-template-rows: repeat(3, 1fr);
-    grid-gap: 1rem;
-    margin-bottom: 10px;
-    label {
-      font-size: 1.5rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    input {
-      font-size: 1.5rem;
-    }
-    .form__link {
-      font-size: 1.5rem;
-      background-color: #f0f0f0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
   }
-  .form__change-pw {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr;
+  .form__change-pw,
+  .form__edit-profile {
     grid-template-rows: repeat(4, 1fr);
-    grid-gap: 1rem;
-    margin-bottom: 10px;
-    label {
-      font-size: 1.5rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    input {
-      font-size: 1.5rem;
-    }
-    .form__link {
-      font-size: 1.5rem;
-      background-color: #f0f0f0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
   }
 }
 

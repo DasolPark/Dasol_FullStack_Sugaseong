@@ -30,7 +30,11 @@ const BoardSchema = new mongoose.Schema(
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Comment'
       }
-    ]
+    ],
+    creator: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User'
+    }
   },
   {
     timestamps: true

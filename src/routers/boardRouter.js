@@ -10,6 +10,7 @@ import {
   postEditBoard,
   getEditBoard
 } from '../controllers/boardController';
+import { onlyPrivate } from '../middlewares';
 
 const boardRouter = express.Router();
 
@@ -22,7 +23,7 @@ boardRouter.get(routes.searchBoard, searchBoard);
 boardRouter.get(routes.writeBoard, getWriteBoard);
 boardRouter.post(routes.writeBoard, postWriteBoard);
 
-boardRouter.get(routes.boardDetail(), boardDetail);
+boardRouter.get(routes.boardDetail(), onlyPrivate, boardDetail);
 
 boardRouter.get(routes.editBoard(), getEditBoard);
 boardRouter.post(routes.editBoard(), postEditBoard);

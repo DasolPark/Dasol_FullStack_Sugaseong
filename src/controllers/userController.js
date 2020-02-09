@@ -110,8 +110,15 @@ export const logout = (req, res) => {
 };
 
 // Get User
-export const getMe = (req, res) => {
-  res.render('userDetail', { pageTitle: '프로필', user: req.user });
+export const getMe = async (req, res) => {
+  try {
+    const user = await User.findById(req.user.id).populate('boards');
+    res.render('userDetail', { pageTitle: '프로필', user });
+  } catch (error) {
+    console.log(error);
+    res.redirect(routes.home);
+  }
+  // res.render('userDetail', { pageTitle: '프로필', user: req.user });
 };
 
 // User Detail
@@ -120,7 +127,7 @@ export const userDetail = async (req, res) => {
     params: { id }
   } = req;
   try {
-    const user = await User.findById(id);
+    const user = await User.findById(id).populate('boards');
     res.render('userDetail', { pageTitle: '프로필', user });
   } catch (error) {
     console.log(error);
@@ -143,7 +150,7 @@ export const postEditProfile = async (req, res) => {
       email,
       avatarUrl: file ? file.path : req.user.avatarUrl
     });
-    res.redirect(`/user${routes.me}`);
+    res.redirect(routes.userDetail(req.user.id));
   } catch (error) {
     console.log(error);
     res.redirect(`/user${routes.editProfile}`);

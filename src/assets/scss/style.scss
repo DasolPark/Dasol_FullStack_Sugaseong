@@ -43,7 +43,8 @@ button {
 input[type='button'],
 input[type='submit'],
 .form__link,
-.social__login button {
+.social__login button,
+.user-profile__btns button {
   padding: 5px 10px;
   border-radius: 5px;
   border: 2px solid rgba(0, 0, 0, 0.3);
@@ -56,14 +57,16 @@ input[type='submit'],
 
 input[type='button']:hover,
 input[type='submit']:hover,
-.social__github {
+.social__github:hover,
+.user-profile__btns button:hover {
   cursor: pointer;
 }
 
 input[type='button']:active,
 input[type='submit']:active,
 .form__link a:active,
-.social__login button:active {
+.social__login button:active,
+.user-profile__btns button:active {
   transform: scale(0.98);
   outline-style: none;
 }

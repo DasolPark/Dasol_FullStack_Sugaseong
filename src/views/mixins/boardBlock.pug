@@ -5,5 +5,6 @@ mixin boardBlock(board = {})
       td.board__content-column
         a(href=routes.boardDetail(board.id))
           h4.boardBlock__title= board.title
+      td.board__content-column= board.creator
       td.board__content-column= board.date
       td.board__content-column= board.views

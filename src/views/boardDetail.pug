@@ -9,13 +9,16 @@ block content
         .board__detail-column
           span= oneBoard.title
         .board__detail-column
+          a(href=routes.userDetail(oneBoard.creator.id))= oneBoard.creator.name
+        .board__detail-column
           span= oneBoard.createdAt
         .board__detail-column
           span= oneBoard.views
       .board__detail-content
         span= oneBoard.content
-      form(action=routes.editBoard(oneBoard.id))
-        input(type="submit", value="수정하기")
+      if oneBoard.creator.id === loggedUser.id
+        form(action=routes.editBoard(oneBoard.id))
+          input(type="submit", value="수정하기")
       .board__comments
         if oneBoard.comments.length === 0
           span.board__comment-number 0 comment

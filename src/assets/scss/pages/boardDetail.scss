@@ -17,6 +17,11 @@
       justify-content: center;
       margin-right: 15px;
     }
+    .board__detail-column:nth-child(3) {
+      a {
+        color: #3498db;
+      }
+    }
   }
   .board__detail-content {
     display: flex;
