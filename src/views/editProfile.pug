@@ -6,7 +6,7 @@ block content
       form(action=`/user${routes.editProfile}`, method="post", enctype="multipart/form-data")
         label(for="avatar") Avatar
         input(type="file", id="avatar", name="avatarFile", accept="avatars/*" autocomplete="off")
-        input(type="text", placeholder="Name", name="name", autocomplete="off")
-        input(type="email", placeholder="Email", name="email", autocomplete="off")
+        input(type="text", placeholder="Name", name="name", value=loggedUser.name, autocomplete="off")
+        input(type="email", placeholder="Email", name="email", value=loggedUser.email, autocomplete="off")
         input(type="submit", value="Update Profile")
         a.form__link(href=`/user${routes.changePassword}`) Change Password

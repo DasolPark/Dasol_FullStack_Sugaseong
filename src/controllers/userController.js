@@ -135,11 +135,40 @@ export const getEditProfile = (req, res) =>
 export const postEditProfile = async (req, res) => {
   const {
     body: { name, email },
-    file: { path }
+    file
   } = req;
-  res.render('editProfile', { pageTitle: '프로필 수정' });
+  try {
+    await User.findByIdAndUpdate(req.user.id, {
+      name,
+      email,
+      avatarUrl: file ? file.path : req.user.avatarUrl
+    });
+    res.redirect(`/user${routes.me}`);
+  } catch (error) {
+    console.log(error);
+    res.redirect(`/user${routes.editProfile}`);
+  }
 };
 
 // Change Password
-export const changePassword = (req, res) =>
+export const getChangePassword = (req, res) =>
   res.render('changePassword', { pageTitle: '비밀번호 변경' });
+
+export const postChangePassword = async (req, res) => {
+  const {
+    body: { oldPassword, newPassword1, newPassword2 }
+  } = req;
+  try {
+    if (newPassword1 !== newPassword2) {
+      res.status(400);
+      res.redirect(`/user${routes.changePassword}`);
+      return;
+    }
+    await req.user.changePassword(oldPassword, newPassword1);
+    res.redirect(`/user${routes.me}`);
+  } catch (error) {
+    console.log(error);
+    res.status(400);
+    res.redirect(`/user${routes.changePassword}`);
+  }
+};

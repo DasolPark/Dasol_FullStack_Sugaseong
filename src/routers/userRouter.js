@@ -3,7 +3,6 @@ import passport from 'passport';
 import routes from '../routes';
 import {
   userDetail,
-  changePassword,
   logout,
   getJoin,
   postJoin,
@@ -15,9 +14,11 @@ import {
   postGithubLogin,
   getMe,
   facebookLogin,
-  postFacebookLogin
+  postFacebookLogin,
+  getChangePassword,
+  postChangePassword
 } from '../controllers/userController';
-import { onlyPublic, onlyPrivate } from '../middlewares';
+import { onlyPublic, onlyPrivate, uploadAvatar } from '../middlewares';
 
 const userRouter = express.Router();
 
@@ -44,9 +45,10 @@ userRouter.get(
 );
 
 userRouter.get(routes.editProfile, onlyPrivate, getEditProfile);
-userRouter.post(routes.editProfile, onlyPrivate, postEditProfile);
+userRouter.post(routes.editProfile, onlyPrivate, uploadAvatar, postEditProfile);
 
-userRouter.get(routes.changePassword, onlyPrivate, changePassword);
+userRouter.get(routes.changePassword, onlyPrivate, getChangePassword);
+userRouter.post(routes.changePassword, onlyPrivate, postChangePassword);
 
 userRouter.get(routes.me, getMe);
 
