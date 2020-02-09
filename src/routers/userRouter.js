@@ -12,8 +12,10 @@ import {
   getEditProfile,
   postEditProfile,
   githubLogin,
-  postGithubLogIn,
-  getMe
+  postGithubLogin,
+  getMe,
+  facebookLogin,
+  postFacebookLogin
 } from '../controllers/userController';
 import { onlyPublic, onlyPrivate } from '../middlewares';
 
@@ -31,7 +33,14 @@ userRouter.get(routes.github, githubLogin);
 userRouter.get(
   routes.githubCallback,
   passport.authenticate('github', { failureRedirect: '/user/login' }),
-  postGithubLogIn
+  postGithubLogin
+);
+
+userRouter.get(routes.facebook, facebookLogin);
+userRouter.get(
+  routes.facebookCallback,
+  passport.authenticate('facebook', { failureRedirect: '/user/login' }),
+  postFacebookLogin
 );
 
 userRouter.get(routes.editProfile, onlyPrivate, getEditProfile);
