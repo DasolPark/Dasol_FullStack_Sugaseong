@@ -1,6 +1,7 @@
 extends layouts/main
 
 block content
+  script(type="text/javascript" src=`https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=${NAVER_CLIENT_ID}`)
   .background__container
     .map__container
       div(id="map")

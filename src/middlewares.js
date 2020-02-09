@@ -10,7 +10,6 @@ const multerAvatar = multer({ dest: './src/uploads/avatars/' });
 export const localMiddlewares = (req, res, next) => {
   res.locals.siteName = '수가성 교회';
   res.locals.routes = routes;
-  res.locals.NAVER_CLIENT_ID = process.env.NAVER_CLIENT_ID;
   res.locals.slogan = slogan;
   res.locals.user = req.user || null;
   next();

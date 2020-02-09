@@ -63,7 +63,7 @@ input[type='submit']:hover,
 input[type='button']:active,
 input[type='submit']:active,
 .form__link a:active,
-.social__github:active {
+.social__login button:active {
   transform: scale(0.98);
   outline-style: none;
 }
