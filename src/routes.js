@@ -10,6 +10,7 @@ const USER = '/user';
 const USER_DETAIL = '/:id';
 const EDIT_PROFILE = '/edit-profile';
 const CHANGE_PASSWORD = '/change-password';
+const ME = '/me';
 
 // About
 const ABOUT = '/about';
@@ -42,6 +43,7 @@ const routes = {
   userDetail: USER_DETAIL,
   editProfile: EDIT_PROFILE,
   changePassword: CHANGE_PASSWORD,
+  me: ME,
   about: ABOUT,
   intro: INTRO,
   timeTable: TIMETABLE,

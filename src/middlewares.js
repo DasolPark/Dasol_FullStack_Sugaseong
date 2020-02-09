@@ -11,7 +11,7 @@ export const localMiddlewares = (req, res, next) => {
   res.locals.siteName = '수가성 교회';
   res.locals.routes = routes;
   res.locals.slogan = slogan;
-  res.locals.user = req.user || null;
+  res.locals.loggedUser = req.user || null;
   next();
 };
 

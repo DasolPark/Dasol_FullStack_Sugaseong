@@ -77,20 +77,35 @@ export const logout = (req, res) => {
   res.redirect(routes.home);
 };
 
+// Get User
+export const getMe = (req, res) => {
+  res.render('userDetail', { pageTitle: '프로필', user: req.user });
+};
+
 // User Detail
-export const userDetail = (req, res) =>
-  res.render('userDetail', { pageTitle: '사용자 정보' });
+export const userDetail = async (req, res) => {
+  const {
+    params: { id }
+  } = req;
+  try {
+    const user = await User.findById(id);
+    res.render('userDetail', { pageTitle: '프로필', user });
+  } catch (error) {
+    console.log(error);
+    res.redirect(routes.home);
+  }
+};
 
 // Edit Profile
 export const getEditProfile = (req, res) =>
-  res.render('editProfile', { pageTitle: '사용자 정보 수정' });
+  res.render('editProfile', { pageTitle: '프로필 수정' });
 
 export const postEditProfile = async (req, res) => {
   const {
     body: { name, email },
     file: { path }
   } = req;
-  res.render('editProfile', { pageTitle: '사용자 정보 수정' });
+  res.render('editProfile', { pageTitle: '프로필 수정' });
 };
 
 // Change Password

@@ -12,7 +12,8 @@ import {
   getEditProfile,
   postEditProfile,
   githubLogin,
-  postGithubLogIn
+  postGithubLogIn,
+  getMe
 } from '../controllers/userController';
 import { onlyPublic, onlyPrivate } from '../middlewares';
 
@@ -37,6 +38,8 @@ userRouter.get(routes.editProfile, onlyPrivate, getEditProfile);
 userRouter.post(routes.editProfile, onlyPrivate, postEditProfile);
 
 userRouter.get(routes.changePassword, onlyPrivate, changePassword);
+
+userRouter.get(routes.me, getMe);
 
 userRouter.get(routes.userDetail, userDetail);
 

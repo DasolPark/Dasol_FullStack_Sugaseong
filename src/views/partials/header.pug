@@ -23,7 +23,7 @@ header.header
             span 찾아오시는 길
     .header__column
       ul
-        if !user
+        if !loggedUser
           li
             a(href=`/user${routes.join}`)
               span 회원가입
@@ -32,7 +32,7 @@ header.header
               span 로그인
         else
           li
-            a(href=`/user${routes.userDetail}`)
+            a(href=`/user${routes.me}`)
               span 프로필
           li
             a(href=`/user${routes.logout}`)
