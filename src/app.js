@@ -8,7 +8,7 @@ import passport from 'passport';
 import session from 'express-session';
 import MongoStore from 'connect-mongo';
 import path from 'path';
-import mongooseConnection from './db';
+import mongoose from 'mongoose';
 
 import { localMiddlewares } from './middlewares';
 import userRouter from './routers/userRouter';
@@ -38,7 +38,7 @@ app.use(
     secret: process.env.COOKIE_SECRET,
     resave: true,
     saveUninitialized: false,
-    store: new CookieStore({ mongooseConnection })
+    store: new CookieStore({ mongooseConnection: mongoose.connection })
   })
 );
 app.use(passport.initialize());
