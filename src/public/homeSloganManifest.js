@@ -6,4 +6,5 @@ const slogan = {
   sloganThisYear: '주를 기쁘게, 나를 복되게',
   thisYearBible: '(디모데후서 2:1~6)'
 };
+
 export default slogan;

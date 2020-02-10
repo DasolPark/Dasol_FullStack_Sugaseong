@@ -3,7 +3,7 @@ import multer from 'multer';
 import multerS3 from 'multer-s3';
 import aws from 'aws-sdk';
 import routes from './routes';
-import slogan from '../public/homeSloganManifest';
+import slogan from './public/homeSloganManifest';
 
 dotenv.config();
 
