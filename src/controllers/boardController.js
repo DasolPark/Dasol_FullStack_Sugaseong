@@ -83,10 +83,10 @@ export const getEditBoard = async (req, res) => {
   } = req;
   try {
     const oneBoard = await Board.findById(id);
-    if (board.creator !== req.user.id) {
-      throw Error();
-    } else {
+    if (oneBoard.creator.toString() === req.user.id.toString()) {
       res.render('editBoard', { pageTitle: '게시판 수정', oneBoard });
+    } else {
+      throw Error();
     }
   } catch (error) {
     console.log(error);
@@ -113,7 +113,7 @@ export const deleteBoard = async (req, res) => {
   } = req;
   try {
     const oneBoard = await Board.findById(id);
-    if (oneBoard.creator !== req.user.id) {
+    if (oneBoard.creator.toString() !== req.user.id.toString()) {
       throw Error();
     } else {
       await Board.findByIdAndRemove(id);
