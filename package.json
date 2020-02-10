@@ -7,6 +7,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/cli": "^7.8.4",
     "@babel/polyfill": "^7.8.3",
     "aws-sdk": "^2.614.0",
     "axios": "^0.19.2",
@@ -47,7 +48,6 @@
     "prestart": "npm run build"
   },
   "devDependencies": {
-    "@babel/cli": "^7.8.4",
     "@babel/core": "^7.8.4",
     "@babel/node": "^7.8.4",
     "@babel/plugin-proposal-class-properties": "^7.8.3",
