@@ -1,11 +1,27 @@
 import dotenv from 'dotenv';
 import multer from 'multer';
+import multerS3 from 'multer-s3';
+import aws from 'aws-sdk';
 import routes from './routes';
 import slogan from '../public/homeSloganManifest';
 
 dotenv.config();
 
-const multerAvatar = multer({ dest: './src/uploads/avatars/' });
+const s3 = new aws.S3({
+  accessKeyId: process.env.AWS_KEY,
+  secretAccessKey: process.env.AWS_PRIVATE_KEY,
+  region: 'ap-northeast-1'
+});
+
+const multerAvatar = multer({
+  storage: multerS3({
+    s3,
+    acl: 'public-read',
+    bucket: 'sugaseong/avatar'
+  })
+});
+
+export const uploadAvatar = multerAvatar.single('avatarFile');
 
 export const localMiddlewares = (req, res, next) => {
   res.locals.siteName = '수가성 교회';
@@ -30,5 +46,3 @@ export const onlyPrivate = (req, res, next) => {
     res.redirect(routes.home);
   }
 };
-
-export const uploadAvatar = multerAvatar.single('avatarFile');
