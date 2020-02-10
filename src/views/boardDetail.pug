@@ -36,5 +36,6 @@ block content
           input(type="text", placeholder="Add a comment")
         ul.board__comments-list#jsCommentList
           each comment in oneBoard.comments.reverse()
-            li
+            li(id=comment.id)
               span= comment.text
+              button#jsDelBtn ❌

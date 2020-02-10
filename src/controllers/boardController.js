@@ -129,14 +129,12 @@ export const postRegisterView = async (req, res) => {
   const {
     params: { id }
   } = req;
-  console.log(req.params.id);
   try {
     const oneBoard = await Board.findById(id);
     oneBoard.views += 1;
     oneBoard.save();
     res.status(200);
   } catch (error) {
-    console.log('here?');
     res.status(400);
   } finally {
     res.end();
@@ -156,6 +154,25 @@ export const postAddComment = async (req, res) => {
       creator: user.id
     });
     oneBoard.comments.push(newComment.id);
+    oneBoard.save();
+    res.send(newComment.id);
+  } catch (error) {
+    console.log(error);
+    res.status(400);
+  } finally {
+    res.end();
+  }
+};
+
+export const postDelComment = async (req, res) => {
+  const {
+    params: { id },
+    body: { listId }
+  } = req;
+  try {
+    const oneBoard = await Board.findById(id);
+    const delComment = await Comment.findByIdAndRemove(listId);
+    oneBoard.comments.filter(commentId => commentId !== delComment.id);
     oneBoard.save();
   } catch (error) {
     console.log(error);

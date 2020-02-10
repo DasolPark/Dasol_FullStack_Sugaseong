@@ -3,9 +3,10 @@
   height: 100%;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 10% 50% 10% 30%;
+  grid-template-rows: 10% 30% 10% 50%;
 
   .board__detail-titles {
+    font-size: 1.2rem;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-auto-flow: column;
@@ -24,6 +25,7 @@
     }
   }
   .board__detail-content {
+    font-size: 1.2rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -36,24 +38,50 @@
   .board__comments {
     margin-top: 25px;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     .board__comment-number {
       font-size: 18px;
     }
     .add__comment {
-      margin-top: 25px;
+      margin-top: 10px;
       width: 100%;
       input {
         width: 50%;
       }
     }
     .board__comments-list {
-      margin-top: 50px;
+      overflow-y: scroll;
+      height: 100%;
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      margin-top: 10px;
       li {
-        background-color: #3498db;
-        color: white;
-        padding: 15px;
-        border-radius: 20px;
-        border-bottom-left-radius: 0px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        span {
+          background-color: #3498db;
+          font-size: 1.1rem;
+          color: white;
+          padding: 10px;
+          border-radius: 20px;
+          border-top-left-radius: 0px;
+          margin-right: 3px;
+        }
+        button {
+          all: unset;
+          font-size: 0.7rem;
+        }
+        button:hover {
+          cursor: pointer;
+        }
+        button:active {
+          transform: scale(0.98);
+        }
         &:not(:last-child) {
           margin-bottom: 15px;
         }
