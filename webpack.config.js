@@ -34,5 +34,8 @@ module.exports = {
     ]
   },
   devtool: 'source-map',
-  mode: 'development'
+  mode: 'development',
+  performance: {
+    hints: process.env.NODE_ENV === 'production' ? 'warning' : false
+  }
 };
