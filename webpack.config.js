@@ -5,7 +5,8 @@ module.exports = {
   entry: [
     '@babel/polyfill',
     './src/assets/js/main.js',
-    './src/assets/scss/style.scss'
+    './src/assets/scss/style.scss',
+    './src/assets/images/file.js'
   ],
   output: {
     path: path.resolve(__dirname, 'src/dist/'),
@@ -30,11 +31,23 @@ module.exports = {
         test: /\.scss$/,
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
         exclude: /node_modules/
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        loader: 'file-loader',
+        options: {
+          name() {
+            if (process.env.NODE_ENV === 'development') {
+              return 'images/[name].[ext]';
+            }
+
+            return 'images/[name].[ext]';
+          }
+        }
       }
     ]
   },
   devtool: 'source-map',
-  mode: 'development',
   performance: {
     hints: process.env.NODE_ENV === 'production' ? 'warning' : false
   }

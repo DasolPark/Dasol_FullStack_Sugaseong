@@ -30,6 +30,7 @@
     "eslint-plugin-import": "^2.20.1",
     "express": "^4.17.1",
     "express-session": "^1.17.0",
+    "file-loader": "^5.0.2",
     "fs": "0.0.1-security",
     "helmet": "^3.21.2",
     "mini-css-extract-plugin": "^0.9.0",
@@ -51,14 +52,14 @@
     "webpack-cli": "^3.3.10"
   },
   "scripts": {
-    "dev:server": "nodemon --exec babel-node src/init.js",
+    "dev:server": "set NODE_ENV=development&& nodemon --exec babel-node src/init.js",
     "dev:assets": "webpack -w --mode=development",
     "build:server": "babel src -d build --ignore 'src/assets'",
     "build:assets": "webpack --mode=production",
     "copyAll": "cp -R src/dist build && cp -R src/views build",
     "build": "npm run build:server && npm run build:assets && npm run copyAll",
     "prebuild": "rm -rf build",
-    "start": "node build/init.js",
+    "start": "set NODE_ENV=production&& node build/init.js",
     "prestart": "npm run build"
   },
   "devDependencies": {

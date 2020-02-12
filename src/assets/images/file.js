@@ -1,0 +1,1 @@
+import './pastor.jpg';

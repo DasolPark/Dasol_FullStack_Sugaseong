@@ -28,7 +28,8 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    .section__title {
+    .section__title,
+    .section__subTitle {
       font-size: 2rem;
       margin-bottom: 20px;
     }
@@ -50,11 +51,12 @@
           width: 170px;
           height: 170px;
           border-radius: 5px;
-          margin-bottom: 5px;
+          margin-bottom: 10px;
         }
         span {
           span:first-child {
             font-size: 1.5rem;
+            margin-right: 5px;
           }
           span:nth-child(2) {
             font-size: 1.8rem;

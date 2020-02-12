@@ -28,6 +28,11 @@ export const localMiddlewares = (req, res, next) => {
   res.locals.routes = routes;
   res.locals.slogan = slogan;
   res.locals.loggedUser = req.user || null;
+  if (process.env.NODE_ENV === 'development') {
+    res.locals.imagePath = 'dist/images/';
+  } else {
+    res.locals.imagePath = 'dist/images/';
+  }
   next();
 };
 
