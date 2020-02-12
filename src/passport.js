@@ -18,9 +18,10 @@ passport.use(
     {
       clientID: process.env.GITHUB_CLIENT_ID,
       clientSecret: process.env.GITHUB_SECRET,
-      callbackURL: process.env.NODE_ENV
-        ? `https://still-hollows-17834.herokuapp.com/user${routes.githubCallback}`
-        : `http://localhost:4000/user${routes.githubCallback}`
+      callbackURL:
+        process.env.NODE_ENV === 'development'
+          ? `http://localhost:4000/user${routes.githubCallback}`
+          : `https://still-hollows-17834.herokuapp.com/user${routes.githubCallback}`
     },
     githubLoginCallback
   )
@@ -31,9 +32,10 @@ passport.use(
     {
       clientID: process.env.FACEBOOK_CLIENT_ID,
       clientSecret: process.env.FACEBOOK_SECRET,
-      callbackURL: process.env.NODE_ENV
-        ? `https://still-hollows-17834.herokuapp.com/user${routes.facebookCallback}`
-        : `http://localhost:4000/user${routes.facebookCallback}`,
+      callbackURL:
+        process.env.NODE_ENV === 'development'
+          ? `http://localhost:4000/user${routes.facebookCallback}`
+          : `https://still-hollows-17834.herokuapp.com/user${routes.facebookCallback}`,
       profileFields: ['id', 'displayName', 'photos', 'email'],
       scope: ['public_profile', 'email']
     },
