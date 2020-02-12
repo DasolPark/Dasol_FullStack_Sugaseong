@@ -5,7 +5,9 @@ import './db';
 dotenv.config();
 
 const PORT =
-  process.env.NODE_ENV === 'development' ? process.env.PORT || 4000 : 5050;
+  process.env.NODE_ENV === 'development'
+    ? process.env.DEV_PORT || 4000
+    : process.env.PROD_PORT || 5050;
 
 const onServerListening = () => {
   console.log(`Listening on: http://localhost:${PORT}`);
