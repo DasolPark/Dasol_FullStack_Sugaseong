@@ -8,6 +8,7 @@ mongoose.connect(
     ? process.env.MONGO_URL
     : process.env.MONGO_URL_PROD,
   {
+    useCreateIndex: true,
     useNewUrlParser: true,
     useFindAndModify: false,
     useUnifiedTopology: true

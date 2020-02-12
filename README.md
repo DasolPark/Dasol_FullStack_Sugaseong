@@ -46,5 +46,5 @@
 ## Deploy
 
 - [x] AWS S3
-- [x] MongoLab
+- [x] Mongo Atlas
 - [x] Heroku

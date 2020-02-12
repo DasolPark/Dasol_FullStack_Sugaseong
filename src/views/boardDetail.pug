@@ -16,8 +16,8 @@ block content
           span= oneBoard.views
       .board__detail-content
         span= oneBoard.content
-      if oneBoard.creator.id === loggedUser.id
-        form(action=routes.editBoard(oneBoard.id))
+      form(action=routes.editBoard(oneBoard.id))
+        if oneBoard.creator.id === loggedUser.id
           input(type="submit", value="수정하기")
       .board__comments
         if oneBoard.comments.length === 0
@@ -36,6 +36,7 @@ block content
           input(type="text", placeholder="Add a comment")
         ul.board__comments-list#jsCommentList
           each comment in oneBoard.comments.reverse()
-            li(id=comment.id)
+            li(id=comment.id, class=`${comment.creator}`)
               span= comment.text
-              button#jsDelBtn ❌
+              if `${comment.creator}` === loggedUser.id
+                button#jsDelBtn ❌

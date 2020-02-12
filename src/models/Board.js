@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import Counter from './Counter';
+import autoIncrementModelId from './Counter';
 
 const date = new Date();
 
@@ -7,7 +7,8 @@ const BoardSchema = new mongoose.Schema(
   {
     index: {
       type: Number,
-      default: 0
+      unique: true,
+      min: 1
     },
     title: {
       type: String,
@@ -42,21 +43,12 @@ const BoardSchema = new mongoose.Schema(
 );
 
 BoardSchema.pre('save', function(next) {
-  const doc = this;
+  if (!this.isNew) {
+    next();
+    return;
+  }
 
-  Counter.findByIdAndUpdate(
-    { _id: 'boardIndex' },
-    { $inc: { seq: 1 } },
-    { new: true, upsert: true }
-  )
-    .then(function(counter) {
-      doc.index = counter.seq;
-      next();
-    })
-    .catch(function(error) {
-      console.error(`counter error: ${error}`);
-      throw error;
-    });
+  autoIncrementModelId('boards', this, next);
 });
 
 const model = mongoose.model('Board', BoardSchema);

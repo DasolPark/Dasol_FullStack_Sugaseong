@@ -1,6 +1,7 @@
 import routes from '../routes';
 import Board from '../models/Board';
 import Comment from '../models/Comment';
+import User from '../models/User';
 
 export const board = async (req, res) => {
   try {
@@ -113,10 +114,15 @@ export const deleteBoard = async (req, res) => {
   } = req;
   try {
     const oneBoard = await Board.findById(id);
+    const creator = await User.findById({ _id: req.user.id });
     if (oneBoard.creator.toString() !== req.user.id.toString()) {
       throw Error();
     } else {
       await Board.findByIdAndRemove(id);
+      creator.boards = creator.boards.filter(
+        boardId => id.toString() !== boardId.toString()
+      );
+      creator.save();
     }
     res.redirect(routes.board);
   } catch (error) {
@@ -172,7 +178,9 @@ export const postDelComment = async (req, res) => {
   try {
     const oneBoard = await Board.findById(id);
     const delComment = await Comment.findByIdAndRemove(listId);
-    oneBoard.comments.filter(commentId => commentId !== delComment.id);
+    oneBoard.comments = oneBoard.comments.filter(
+      commentId => commentId.toString() !== delComment.id.toString()
+    );
     oneBoard.save();
   } catch (error) {
     console.log(error);

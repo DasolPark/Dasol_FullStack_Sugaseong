@@ -5,6 +5,21 @@ const CounterSchema = new mongoose.Schema({
   seq: { type: Number, default: 0 }
 });
 
+CounterSchema.index({ _id: 1, seq: 1 }, { unique: true });
+
 const Counter = mongoose.model('Counter', CounterSchema);
 
-export default Counter;
+const autoIncrementModelId = function(modelName, doc, next) {
+  Counter.findByIdAndUpdate(
+    modelName,
+    { $inc: { seq: 1 } },
+    { new: true, upsert: true },
+    function(error, counter) {
+      if (error) return next(error);
+      doc.index = counter.seq;
+      next();
+    }
+  );
+};
+
+export default autoIncrementModelId;
