@@ -8,25 +8,27 @@ export const getJoin = (req, res) => {
 };
 
 export const postJoin = async (req, res, next) => {
-  const {
-    body: { name, email, password1, password2 }
-  } = req;
-  if (password1 !== password2) {
-    res.status(400);
-    res.render('Join', { pageTitle: '회원 가입' });
-  } else {
-    try {
-      const user = await User({
-        name,
-        email
-      });
-      await User.register(user, password1);
-      next();
-    } catch (error) {
-      console.log(error);
-      res.redirect(routes.home);
-    }
-  }
+  // Temporariliy Closed Local Join(if you want to open just delete below one line code)
+  res.render('Join', { pageTitle: '회원 가입' });
+  // const {
+  //   body: { name, email, password1, password2 }
+  // } = req;
+  // if (password1 !== password2) {
+  //   res.status(400);
+  //   res.render('Join', { pageTitle: '회원 가입' });
+  // } else {
+  //   try {
+  //     const user = await User({
+  //       name,
+  //       email
+  //     });
+  //     await User.register(user, password1);
+  //     next();
+  //   } catch (error) {
+  //     console.log(error);
+  //     res.redirect(routes.home);
+  //   }
+  // }
 };
 
 // Log In
