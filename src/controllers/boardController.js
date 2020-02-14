@@ -71,6 +71,8 @@ export const boardDetail = async (req, res) => {
     const oneBoard = await Board.findById(id)
       .populate('creator')
       .populate('comments');
+    oneBoard.views += 1;
+    oneBoard.save();
     res.render('boardDetail', { pageTitle: '게시판 내용', oneBoard });
   } catch (error) {
     console.log(error);
@@ -128,22 +130,6 @@ export const deleteBoard = async (req, res) => {
   } catch (error) {
     console.log(error);
     res.redirect(routes.board);
-  }
-};
-
-export const postRegisterView = async (req, res) => {
-  const {
-    params: { id }
-  } = req;
-  try {
-    const oneBoard = await Board.findById(id);
-    oneBoard.views += 1;
-    oneBoard.save();
-    res.status(200);
-  } catch (error) {
-    res.status(400);
-  } finally {
-    res.end();
   }
 };
 
