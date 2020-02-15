@@ -16,11 +16,11 @@ export const board = async (req, res) => {
       first += last;
       last += 10;
     }
-    const nowPage = pages[0];
+    const nowPage = pages[0] || [];
     res.render('board', { pageTitle: '게시판', nowPage, pageIndex });
   } catch (error) {
     console.log(error);
-    res.render('board', { pageTitle: '게시판', boards: [] });
+    res.render('board', { pageTitle: '게시판', nowPage: [] });
   }
 };
 
@@ -40,11 +40,11 @@ export const selectBoard = async (req, res) => {
       first += last;
       last += 10;
     }
-    const nowPage = pages[parseInt(id, 10) - 1 || 0];
+    const nowPage = pages[parseInt(id, 10) - 1 || 0] || [];
     res.render('board', { pageTitle: '게시판', nowPage, pageIndex });
   } catch (error) {
     console.log(error);
-    res.render('board', { pageTitle: '게시판', boards: [] });
+    res.render('board', { pageTitle: '게시판', nowPage: [] });
   }
 };
 
