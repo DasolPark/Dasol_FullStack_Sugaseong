@@ -2,13 +2,14 @@ import express from 'express';
 import routes from '../routes';
 import {
   board,
-  boardDetail,
-  deleteBoard,
+  selectBoard,
   searchBoard,
-  postWriteBoard,
   getWriteBoard,
+  postWriteBoard,
+  boardDetail,
+  getEditBoard,
   postEditBoard,
-  getEditBoard
+  deleteBoard
 } from '../controllers/boardController';
 import { onlyPrivate } from '../middlewares';
 
@@ -17,6 +18,8 @@ const boardRouter = express.Router();
 // To Do onlyPrivate after index
 
 boardRouter.get('/', board);
+
+boardRouter.get(routes.selectBoard, selectBoard);
 
 boardRouter.get(routes.searchBoard, searchBoard);
 

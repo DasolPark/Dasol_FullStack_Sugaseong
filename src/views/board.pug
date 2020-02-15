@@ -16,7 +16,7 @@ block content
               th.board__column 작성자
               th.board__column 작성일
               th.board__column 조회
-          each item in firstPage
+          each item in nowPage
             +boardBlock({
               id: item.id,
               index: item.index,
@@ -27,9 +27,13 @@ block content
             })
       .board__index
         ul
+          li
+            a(href='#') 이전
           each num in pageIndex
             li
-              a(href=routes.board, id=num)= num
+              a(href=`/board/select/${num}` id=num)= num
+          li
+            a(href='#') 다음
       .board__search
         form(action=`/board${routes.searchBoard}`, method="get")
           input(type="text", name="term", autocomplete="off", placeholder="제목을 입력해주세요.")

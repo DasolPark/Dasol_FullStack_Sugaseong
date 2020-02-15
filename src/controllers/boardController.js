@@ -6,12 +6,42 @@ import User from '../models/User';
 export const board = async (req, res) => {
   try {
     const boards = await Board.find({}).populate('creator');
-    const firstPage = boards.slice(0, 10);
+    let first = 0;
+    let last = 10;
+    const pages = [];
     const pageIndex = [];
     for (let i = 0; i < Math.ceil(boards.length / 10); i++) {
       pageIndex.push(i + 1);
+      pages.push(boards.slice(first, last));
+      first += last;
+      last += 10;
     }
-    res.render('board', { pageTitle: '게시판', firstPage, pageIndex });
+    const nowPage = pages[0];
+    res.render('board', { pageTitle: '게시판', nowPage, pageIndex });
+  } catch (error) {
+    console.log(error);
+    res.render('board', { pageTitle: '게시판', boards: [] });
+  }
+};
+
+export const selectBoard = async (req, res) => {
+  const {
+    params: { id }
+  } = req;
+  try {
+    const boards = await Board.find({}).populate('creator');
+    let first = 0;
+    let last = 10;
+    const pages = [];
+    const pageIndex = [];
+    for (let i = 0; i < Math.ceil(boards.length / 10); i++) {
+      pageIndex.push(i + 1);
+      pages.push(boards.slice(first, last));
+      first += last;
+      last += 10;
+    }
+    const nowPage = pages[parseInt(id, 10) - 1 || 0];
+    res.render('board', { pageTitle: '게시판', nowPage, pageIndex });
   } catch (error) {
     console.log(error);
     res.render('board', { pageTitle: '게시판', boards: [] });

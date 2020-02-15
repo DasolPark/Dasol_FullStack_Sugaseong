@@ -21,6 +21,7 @@ const TIMETABLE = '/time-table';
 
 // Board
 const BOARD = '/board';
+const SELECT_BOARD = '/select/:id';
 const SEARCH_BOARD = '/search-board';
 const WRITE_BOARD = '/write-board';
 const BOARD_DETAIL = '/:id';
@@ -67,6 +68,7 @@ const routes = {
   timeTable: TIMETABLE,
   map: MAP,
   board: BOARD,
+  selectBoard: SELECT_BOARD,
   searchBoard: SEARCH_BOARD,
   writeBoard: WRITE_BOARD,
   boardDetail: id => {
